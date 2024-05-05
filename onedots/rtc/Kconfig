@@ -1,0 +1,29 @@
+#
+# For a description of the syntax of this configuration file,
+# see the file kconfig-language.txt in the NuttX tools repository.
+#
+
+config ONEDOTS_RTC_TEST
+    tristate "Onedots rtc test"
+    default n
+    ---help---
+        Enable onedots rtc test
+
+if ONEDOTS_RTC_TEST
+
+config ONEDOTS_RTC_TEST_PROGNAME
+    string "Program name"
+    default "rtc_test"
+    ---help---
+        This is the name of the program that will be used when the NSH ELF
+        program is installed.
+
+config ONEDOTS_RTC_TEST_PRIORITY
+    int "Sample evb task priority"
+    default 100
+
+config ONEDOTS_RTC_TEST_STACKSIZE
+    int "SAMPLE EVB stack size"
+    default DEFAULT_TASK_STACKSIZE
+
+endif
